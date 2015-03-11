@@ -65,7 +65,7 @@ tar czf modules.tgz *
 scp modules.tgz pi@<ip-addr>:/tmp
 scp ~/code/arch/arm/boot/dts/rpi-cirrus-wm5102-overlay.dtb pi@<ip-addr>:/tmp
 ```
-Note : Where ```<kernel_img>``` is '''kernel.img''' for bcm2708, '''kernel7.img''' for bcm2709
+Note : Where ```<kernel_img>``` is ```kernel.img``` for bcm2708, ```kernel7.img``` for bcm2709
 
 7) Install the kernel, modules and dtb file on the Raspberry PI. Connect to your
 Raspberry PI over SSH and do the following:
@@ -78,11 +78,12 @@ rm /tmp/modules.tgz
 ```
 
 8) Device tree configuration for cirrus audio card
-Open the '''config.txt''' file and add entry for '''dtoverlay'''
-'''
+Open the ```config.txt``` file and add entry for ```dtoverlay```
+
+```
 sudo nano /boot/config.txt
 dtoverlay=rpi-cirrus-wm5102-overlay
-'''
+```
 
 9) Dependancies between modules. There are certain modules those should be loaded before loading of other modules.
 Connect to the Raspberry PI over SSH and do the following:
@@ -98,9 +99,10 @@ softdep spi-bcm2708 pre: fixed
 ```
 
 10) Restart the Raspberry PI
-'''
+
+```
 sudo shutdown -r now
-'''
+```
 
 11) When the Raspberry PI reboots connect over SSH and run:
 ```
